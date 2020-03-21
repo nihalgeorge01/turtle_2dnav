@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import rospy
 from geometry_msgs.msg import Twist
 
@@ -12,7 +12,7 @@ def move2goal():
     velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=1)
     vel_msg = Twist()
     pose_subscriber = rospy.Subscriber('cmd_vel', Twist, publish_velocity)
-    rate = rospy.Rate(15)
+    rate = rospy.Rate(60)
 
     rate.sleep()
 

@@ -158,10 +158,10 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
+#install(PROGRAMS
+#   nodes/fake_laser.py
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+#)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
@@ -190,6 +190,9 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+catkin_install_python(PROGRAMS nodes/turtle_tf2_broadcaster.py nodes/odometry_source.py nodes/base_controller.py nodes/goal_publisher.py nodes/obstacle_tf2_broadcaster.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 #############
 ## Testing ##

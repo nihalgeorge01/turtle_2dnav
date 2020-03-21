@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import rospy
 import tf_conversions
 from geometry_msgs.msg import PoseStamped
@@ -18,8 +18,8 @@ def goal_publisher():
         goal.header.stamp = rospy.Time.now()
         goal.header.frame_id = "odom"
 
-        goal.pose.position.x = 1.0
-        goal.pose.position.y = 5.0
+        goal.pose.position.x = 10.0
+        goal.pose.position.y = 5.5
         goal.pose.position.z = 0.0
         
         goal_quat = tf_conversions.transformations.quaternion_from_euler(0, 0, goal_theta) 

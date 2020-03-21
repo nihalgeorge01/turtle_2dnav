@@ -15,10 +15,7 @@ def handle_turtle_pose(msg, turtlename):
 
     t.header.stamp = rospy.Time.now()
     t.header.frame_id = "odom"
-    if turtlename == "turtle1":
-        t.child_frame_id = "base_link"
-    else:
-        t.child_frame_id = turtlename
+    t.child_frame_id = "turtle2"
     t.transform.translation.x = msg.x
     t.transform.translation.y = msg.y
     t.transform.translation.z = 0.0
@@ -31,7 +28,7 @@ def handle_turtle_pose(msg, turtlename):
     br.sendTransform(t)
 
 if __name__ == '__main__':
-    node_name = "turtle" + str(1) + "_tf2_broadcaster"
+    node_name = "obstacle" + str(1) + "_tf2_broadcaster"
     rospy.init_node(node_name)
     turtlename = rospy.get_param('~turtle')
     rospy.Subscriber('/%s/pose' % turtlename,
@@ -39,3 +36,4 @@ if __name__ == '__main__':
                     handle_turtle_pose,
                     turtlename)
     rospy.spin()
+

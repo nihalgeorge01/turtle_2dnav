@@ -5,6 +5,10 @@
   <node pkg="turtle_2dnav" type="turtle_tf2_broadcaster.py" name="turtle1_tf2_broadcaster" output="screen">
     <param name="turtle" type="string" value="turtle1" />
   </node>
+
+  <node pkg="turtle_2dnav" type="obstacle_tf2_broadcaster.py" name="obstacle_tf2_broadcaster" output="screen">
+    <param name="turtle" type="string" value="turtle2" />
+  </node>
   <node name = "goal_publisher" pkg = "turtle_2dnav" type = "goal_publisher.py" respawn = "false" output = "screen"/>
   <node name = "base_controller" pkg = "turtle_2dnav" type = "base_controller.py" respawn = "false" output = "screen"/>
 
